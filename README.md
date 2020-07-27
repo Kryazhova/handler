@@ -10,7 +10,6 @@
 ```
 Вы можете скопировать базу данных для тестовой проверки сервиса с помощью файлов 
 *.sql в папке "sqlDunp" для работы с базой данных MySql
-и изменить данных сборки на mySql 
 ```
   - JPA 
   
@@ -41,16 +40,27 @@ Content-Type: application/json
  "creditAmount": 200000
 }
 ```
-Пример get запроса для получения всех отклоненных заявок
+Пример get запроса для получения всех отклоненных заявок с MySql по локальному хосту
 ```
 GET http://localhost:8080/mortgages/declined
 ```
 
-Пример get запроса для получения всех успешных заявок
+Пример get запроса для получения всех успешных заявок с MySql по локальному хосту
 ```
 GET http://localhost:8080/mortgages/successful
 ```
 
+### для проверки через heroku 
+
+Пример get запроса для получения всех успешных заявок на heroku
+```
+https://handler-homework.herokuapp.com/mortgages/successful
+```
+
+Пример get запроса для получения всех отклоненных заявок на heroku
+```
+https://handler-homework.herokuapp.com/mortgages/declined
+```
 ### Описание тестов
 Для запуска тестов используйте команду:
 ```
