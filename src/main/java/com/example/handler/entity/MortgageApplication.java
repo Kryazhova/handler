@@ -15,9 +15,6 @@ public class MortgageApplication {
     private int creditPeriod;
     private long creditAmount;
 
-//    @OneToOne
-//    MortgageApplicationResult mortgageApplicationResult;
-
     public long getId() {
         return id;
     }

@@ -16,8 +16,9 @@ public class MortgageApplicationResult {
     private boolean isTerrorist;
     private long customerId;
 
-//    @OneToOne(mappedBy = "mortgageApplicationResult")
-//    MortgageApplication mortgageApplication;
+
+    @OneToOne
+    MortgageApplication mortgageApplication;
 
     public long getCustomerId() {
         return customerId;
@@ -67,6 +68,13 @@ public class MortgageApplicationResult {
         isTerrorist = terrorist;
     }
 
+    public MortgageApplication getMortgageApplication() {
+        return mortgageApplication;
+    }
+
+    public void setMortgageApplication(MortgageApplication mortgageApplication) {
+        this.mortgageApplication = mortgageApplication;
+    }
 
     @Override
     public String toString() {

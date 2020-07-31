@@ -9,7 +9,11 @@ import java.util.List;
 
 public interface MortgageApplicationResultRepository extends JpaRepository<MortgageApplicationResult, Long> {
 
-//    @Query(value = "SELECT * FROM mortgage_application_result JOIN mortgage_application on mortgage_application_result.customer_id = mortgage_application.id WHERE mortgage_application_result.is_success = true",
-//            nativeQuery = true)
-    List<MortgageApplicationResult> findAllByIsSuccess(MortgageApplicationStatus status);
+    @Query(value = "SELECT * FROM mortgage_application_result JOIN mortgage_application on mortgage_application_result.mortgage_application_id = mortgage_application.id WHERE mortgage_application_result.is_success = true",
+            nativeQuery = true)
+    List<MortgageApplicationResult> findAllByIsSuccessIsTrue();
+
+    @Query(value = "SELECT * FROM mortgage_application_result JOIN mortgage_application on mortgage_application_result.mortgage_application_id = mortgage_application.id WHERE mortgage_application_result.is_success = false ",
+            nativeQuery = true)
+    List<MortgageApplicationResult> findAllByIsSuccessIsFalse();
 }

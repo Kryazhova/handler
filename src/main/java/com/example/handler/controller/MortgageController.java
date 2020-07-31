@@ -45,11 +45,11 @@ public class MortgageController {
     }
     @GetMapping("/mortgages/successful")
     public List<MortgageApplicationResult> getAllSuccess() {
-        return resultRepository.findAllByIsSuccess(MortgageApplicationStatus.SUCCESS);
+        return resultRepository.findAllByIsSuccessIsTrue();
     }
 
     @GetMapping("/mortgages/declined")
     public List<MortgageApplicationResult> getAllDecline() {
-        return resultRepository.findAllByIsSuccess(MortgageApplicationStatus.DECLINE);
+        return resultRepository.findAllByIsSuccessIsFalse();
     }
 }
