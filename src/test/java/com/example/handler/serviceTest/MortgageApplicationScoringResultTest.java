@@ -28,7 +28,6 @@ class MortgageApplicationScoringResultTest {
     private TerroristRegistry terroristRegistry;
 
     @Test
-    @Transactional
     @Description("Проверка успешной заявки")
     public void testSuccessStatusApplication() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
@@ -46,7 +45,6 @@ class MortgageApplicationScoringResultTest {
     }
 
     @Test
-    @Transactional
     @Description("Проверка заглушки. Наш клиент - террорист")
     public void testTerroristMockito() throws Exception {
         Mockito.when(terroristRegistry.checkIsTerrorist()).thenReturn(true);
@@ -65,7 +63,6 @@ class MortgageApplicationScoringResultTest {
     }
 
     @Test
-    @Transactional
     @Description("Проверка отказа. Наш клиент имеет мало денег и должник")
     public void testDeclineStatusApplication() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
