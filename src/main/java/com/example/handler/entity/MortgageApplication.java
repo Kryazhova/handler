@@ -1,6 +1,8 @@
 package com.example.handler.entity;
 
 
+import com.example.handler.model.MortgageRequest;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,17 @@ public class MortgageApplication {
     private int creditPeriod;
     private long creditAmount;
 
+    public MortgageApplication(MortgageRequest request) {
+        this.setSurname(request.getSurname());
+        this.setFirstName(request.getFirstName());
+        this.setCreditAmount(request.getCreditAmount());
+        this.setCreditPeriod(request.getCreditPeriod());
+        this.setSalary(request.getSalary());
+    }
+
+    public MortgageApplication(){
+
+    }
     public long getId() {
         return id;
     }

@@ -1,5 +1,6 @@
-package com.example.handler.service;
+package com.example.handler.serviceTest;
 
+import com.example.handler.service.TerroristRegistry;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,8 @@ class MortgageApplicationScoringResultTest {
                         "}")
                 .contentType("application/json")
         ).andExpect(status().isOk())
-                .andExpect(content().string(containsString("DECLINE"))) ;
+                .andExpect(content().string(containsString("DECLINE"))
+                );
     }
 
     @Test
@@ -87,7 +89,8 @@ class MortgageApplicationScoringResultTest {
     public void testGettingSuccess() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/mortgages/successful"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("SUCCESS")));
+                .andExpect(content().string(containsString("SUCCESS"))
+                );
     }
 
     @Test

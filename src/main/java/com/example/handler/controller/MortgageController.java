@@ -29,12 +29,7 @@ public class MortgageController {
 
     @PostMapping("/mortgages")
     public MortgageResponse register(@RequestBody MortgageRequest request) {
-        MortgageApplication mortgageApplication = new MortgageApplication();
-        mortgageApplication.setSurname(request.getSurname());
-        mortgageApplication.setFirstName(request.getFirstName());
-        mortgageApplication.setCreditAmount(request.getCreditAmount());
-        mortgageApplication.setCreditPeriod(request.getCreditPeriod());
-        mortgageApplication.setSalary(request.getSalary());
+        MortgageApplication mortgageApplication = new MortgageApplication(request);
         mortgageApplication = repository.save(mortgageApplication);
 
         MortgageResponse response = new MortgageResponse();
@@ -45,11 +40,11 @@ public class MortgageController {
     }
     @GetMapping("/mortgages/successful")
     public List<MortgageApplicationResult> getAllSuccess() {
-        return resultRepository.findAllByIsSuccessIsTrue();
+        return resultRepository.findAllByIsSuccess(MortgageApplicationStatus.SUCCESS);
     }
 
     @GetMapping("/mortgages/declined")
     public List<MortgageApplicationResult> getAllDecline() {
-        return resultRepository.findAllByIsSuccessIsFalse();
+        return resultRepository.findAllByIsSuccess(MortgageApplicationStatus.DECLINE);
     }
 }

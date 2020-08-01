@@ -35,7 +35,7 @@ public class MortgageScoringResult {
         mortgageApplicationResult.setLowSalary(isLowSalary);
         mortgageApplicationResult.setTerrorist(isTerrorist);
         mortgageApplicationResult.setDebtor(isDebtor);
-        mortgageApplicationResult.setCustomerId(mortgageApplication.getId());
+        mortgageApplicationResult.setMortgageApplication(mortgageApplication);
 
 
         if (isLowSalary || isDebtor || isTerrorist) {

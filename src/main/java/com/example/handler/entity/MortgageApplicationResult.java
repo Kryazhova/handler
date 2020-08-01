@@ -14,19 +14,9 @@ public class MortgageApplicationResult {
     private boolean isLowSalary;
     private boolean isDebtor;
     private boolean isTerrorist;
-    private long customerId;
 
-
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     MortgageApplication mortgageApplication;
-
-    public long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
 
     public long getId() {
         return id;
